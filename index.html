@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirin Izvor | Bulgaria's Direct Tech Talent Pipeline</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fonts: Inter for clarity, Playfair for elegance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-deep: #0A2342;  /* Deep Navy - Trust & Depth */
+            --color-source: #1D5D9B; /* Source Blue - Primary Brand */
+            --color-fresh: #2A9D8F;  /* Fresh Teal - Growth & Clarity */
+            --color-light: #F8F9FA;  /* Light Base */
+            --color-warm: #FF9F1C;   /* Warm Accent - Action */
+            --color-muted: #6C757D;
+            --font-display: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-deep);
+            background-color: var(--color-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .lang-bg { display: none; }
+
+        /* HERO SECTION - Full Screen & Cinematic */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 5%;
+            isolation: isolate;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -2;
+        }
+        .hero-bg-img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7) contrast(1.1);
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(10, 35, 66, 0.85) 0%, rgba(29, 93, 155, 0.7) 100%);
+            z-index: -1;
+        }
+        .hero-content {
+            max-width: 1000px;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+            animation: fadeUp 1s ease-out;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-tag {
+            display: inline-block;
+            background: rgba(255, 159, 28, 0.15);
+            color: var(--color-warm);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 159, 28, 0.3);
+        }
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .hero-lead {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: var(--color-warm);
+            color: var(--color-deep);
+            padding: 1.2rem 2.8rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(255, 159, 28, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 159, 28, 0.4);
+            background: #ffaa33;
+        }
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1.2rem 2.8rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+
+        /* VALUE PROPOSITION - Clear & Bold */
+        .value-prop {
+            padding: 6rem 5%;
+            background: white;
+            text-align: center;
+        }
+        .section-title {
+            margin-bottom: 4rem;
+        }
+        .section-title h2 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            color: var(--color-deep);
+            margin-bottom: 1rem;
+        }
+        .value-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .value-card {
+            background: var(--color-light);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            border-top: 6px solid var(--color-source);
+            box-shadow: 0 10px 30px rgba(10, 35, 66, 0.06);
+            transition: transform 0.3s ease;
+        }
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        .value-card i {
+            font-size: 3rem;
+            color: var(--color-source);
+            margin-bottom: 1.5rem;
+        }
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-deep);
+        }
+
+        /* TALENT SHOWCASE - More Engaging */
+        .showcase {
+            padding: 6rem 5%;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+        }
+        .profiles-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .profiles-header h2 {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            color: var(--color-deep);
+        }
+        .profile-counter {
+            background: var(--color-fresh);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .profiles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+        .profile-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(10, 35, 66, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid #eaeaea;
+        }
+        .profile-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(10, 35, 66, 0.12);
+        }
+        .profile-img {
+            height: 180px;
+            background: linear-gradient(135deg, var(--color-source), var(--color-fresh));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            font-weight: bold;
+            letter-spacing: 5px;
+        }
+        .profile-body {
+            padding: 2rem;
+        }
+        .profile-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-deep);
+            margin-bottom: 0.5rem;
+            filter: blur(6px); /* BLURRED NAME */
+            user-select: none;
+            height: 1.8rem;
+            background: linear-gradient(90deg, #ddd 30%, #eee 50%, #ddd 70%);
+            background-size: 300% 100%;
+            animation: shimmer 2s infinite linear;
+            border-radius: 4px;
+        }
+        @keyframes shimmer {
+            0% { background-position: -100% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .profile-role {
+            color: var(--color-source);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            min-height: 2.2rem;
+        }
+        .profile-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-bottom: 1.5rem;
+            min-height: 4rem;
+        }
+        .skill-tag {
+            background: rgba(42, 157, 143, 0.12);
+            color: var(--color-fresh);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .profile-cta {
+            text-align: center;
+        }
+        .btn-profile {
+            background: var(--color-source);
+            color: white;
+            border: none;
+            padding: 0.9rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        .btn-profile:hover {
+            background: var(--color-deep);
+        }
+
+        /* CTA SECTION */
+        .final-cta {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, var(--color-deep) 0%, var(--color-source) 100%);
+            color: white;
+            text-align: center;
+            border-radius: 30px;
+            margin: 0 5% 6rem;
+            box-shadow: 0 30px 60px rgba(10, 35, 66, 0.2);
+        }
+        .final-cta h2 {
+            font-family: var(--font-display);
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .final-cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            opacity: 0.9;
+        }
+        .cta-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .form-input {
+            flex-grow: 1;
+            min-width: 250px;
+            padding: 1.2rem 1.8rem;
+            border-radius: 50px;
+            border: none;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Header & Footer */
+        header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+        .logo {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+        }
+        .logo span { color: var(--color-warm); }
+        .lang-toggle {
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .lang-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            color: var(--color-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(10, 35, 66, 0.92);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            backdrop-filter: blur(8px);
+        }
+        .modal-content {
+            background: white;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 550px;
+            padding: 3rem;
+            position: relative;
+            animation: modalAppear 0.4s ease-out;
+        }
+        @keyframes modalAppear {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .close-modal {
+            position: absolute;
+            top: 1.5rem; right: 1.8rem;
+            font-size: 2rem;
+            color: var(--color-muted);
+            cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3rem; }
+            .hero-lead { font-size: 1.2rem; }
+            .section-title h2 { font-size: 2.5rem; }
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .cta-buttons, .cta-form { flex-direction: column; width: 100%; }
+            .btn-primary, .btn-secondary, .form-input { width: 100%; }
+            .profiles-grid { grid-template-columns: 1fr; }
+            .final-cta { margin: 0 0 4rem; border-radius: 0; }
+            .profiles-header { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <a href="#" class="logo">Pirin<span>Izvor</span></a>
+        <button class="lang-toggle" id="langSwitch">БГ / BG</button>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Pirin Mountains" class="hero-bg-img">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-tag lang-en">THE DIRECT PIPELINE</div>
+            <div class="hero-tag lang-bg">ДИРЕКТНИЯТ КАНАЛ</div>
+
+            <h1 class="lang-en">Bulgaria's #1 Source for Elite Tech Talent</h1>
+            <h1 class="lang-bg">Източникът #1 за Елитен IT Талант в България</h1>
+
+            <p class="hero-lead lang-en">
+                Stop sifting through agencies. Pirin Izvor delivers <strong>pre-vetted, senior software engineers</strong> from Bulgaria's core—directly to your team. Reduce hiring time by 65% and cost by 40%.
+            </p>
+            <p class="hero-lead lang-bg">
+                Спрете да търсите чрез агенции. Pirin Izvor доставя <strong>претеглени, сеньор софтуерни инженери</strong> от сърцето на България—директно във вашия екип. Намалете времето за наемане с 65% и разходите с 40%.
+            </p>
+
+            <div class="cta-buttons">
+                <button class="btn-primary" id="heroAccessBtn">
+                    <i class="fas fa-unlock"></i>
+                    <span class="lang-en">Request Priority Access</span>
+                    <span class="lang-bg">Поискай Приоритетен Достъп</span>
+                </button>
+                <button class="btn-secondary" id="scrollToTalent">
+                    <span class="lang-en">Browse Top Talent</span>
+                    <span class="lang-bg">Виж Топ Таланти</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUE PROPOSITION -->
+    <section class="value-prop">
+        <div class="section-title">
+            <h2 class="lang-en">Why Choose the Source?</h2>
+            <h2 class="lang-bg">Защо Да Изберете Извора?</h2>
+        </div>
+        <div class="value-cards">
+            <div class="value-card">
+                <i class="fas fa-filter"></i>
+                <h3 class="lang-en">Rigorous Pre-Vetting</h3>
+                <h3 class="lang-bg">Строго Претегляне</h3>
+                <p class="lang-en">Only the top 15% pass our technical and cultural screening. You interview only production-ready candidates.</p>
+                <p class="lang-bg">Само топ 15% минават нашите технически и културни тестове. Интервюирате само готови за работа кандидати.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-bolt"></i>
+                <h3 class="lang-en">Lightning-Fast Matching</h3>
+                <h3 class="lang-bg">Светкавично Съпоставяне</h3>
+                <p class="lang-en">Our AI-driven platform matches skills to your needs within 48 hours, not weeks.</p>
+                <p class="lang-bg">Нашата AI-платформа съпоставя умения с вашите нужди за 48 часа, а не седмици.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-handshake"></i>
+                <h3 class="lang-en">Zero Integration Friction</h3>
+                <h3 class="lang-bg">Нулева Триене при Интеграция</h3>
+                <p class="lang-en">We handle contracts, compliance, and onboarding. Your new hire starts contributing from day one.</p>
+                <p class="lang-bg">Ние се занимаваме с договори, съобразяване и onboarding. Новият ви служител започва да допринася от ден едно.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TALENT SHOWCASE -->
+    <section class="showcase" id="talentSection">
+        <div class="profiles-header">
+            <div>
+                <h2 class="lang-en">Immediate Access to Senior Talent</h2>
+                <h2 class="lang-bg">Незабавен Достъп до Сеньор Таланти</h2>
+                <p class="lang-en" style="color: var(--color-muted); margin-top: 0.5rem;">Profiles are anonymized to protect candidate privacy.</p>
+                <p class="lang-bg" style="color: var(--color-muted); margin-top: 0.5rem;">Профилите са анонимни, за да се защити поверителността на кандидатите.</p>
+            </div>
+            <div class="profile-counter">
+                <span class="lang-en">24+ Available Now</span>
+                <span class="lang-bg">24+ Налични Сега</span>
+            </div>
+        </div>
+        <div class="profiles-grid" id="profilesContainer">
+            <!-- Profiles injected by JS -->
+        </div>
+        <div style="text-align: center;">
+            <button class="btn-primary" id="seeMoreBtn">
+                <span class="lang-en">See More Talent & Request Full Profiles</span>
+                <span class="lang-bg">Виж Още Таланти & Поискай Пълни Профили</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+        <h2 class="lang-en">Ready to Tap the Source?</h2>
+        <h2 class="lang-bg">Готови ли сте да Достигнете Извора?</h2>
+        <p class="lang-en">Join 300+ European SMEs and Bulgarian scale-ups who have streamlined their tech hiring. The first connection is on us.</p>
+        <p class="lang-bg">Присъединете се към 300+ европейски МСП и български скайлъпи, които оптимизираха наемането на IT. Първата връзка е за наша сметка.</p>
+        <form class="cta-form" action="https://formspree.io/f/{YOUR_FORM_ID_HERE}" method="POST">
+            <input class="form-input" type="email" name="email" placeholder="Your work email" required>
+            <input class="form-input" type="text" name="company" placeholder="Company name">
+            <button class="btn-primary" type="submit">
+                <span class="lang-en">Request a Discovery Call</span>
+                <span class="lang-bg">Поискай Разузнавателна Разговор</span>
+            </button>
+        </form>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal" id="interestModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <h3 class="lang-en" style="color: var(--color-deep); font-size: 1.8rem; margin-bottom: 0.5rem;">Access This Profile</h3>
+            <h3 class="lang-bg" style="color: var(--color-deep); font-size: 1.8rem; margin-bottom: 0.5rem;">Достъп до Този Профил</h3>
+            <p class="modal-role" id="modalRoleTitle" style="color: var(--color-source); font-weight: 700; font-size: 1.2rem; margin-bottom: 1.5rem;">Senior Full-Stack Developer</p>
+            <p class="lang-en" style="margin-bottom: 2rem;">Submit your details. We will contact you within <strong>4 business hours</strong> to share the full profile and arrange an introduction.</p>
+            <p class="lang-bg" style="margin-bottom: 2rem;">Оставете вашите данни. Ще се свържем с вас в рамките на <strong>4 работни часа</strong>, за да споделим пълния профил и насрочим запознанство.</p>
+            <form id="modalForm" action="https://formspree.io/f/mgoovnlv" method="POST">
+                <input type="hidden" name="candidate_role" id="formCandidateRole">
+                <input class="form-input" type="text" name="name" placeholder="Your Name" style="margin-bottom: 1rem;" required>
+                <input class="form-input" type="email" name="email" placeholder="Email" style="margin-bottom: 1rem;" required>
+                <input class="form-input" type="text" name="company" placeholder="Company (optional)">
+                <button class="btn-primary" type="submit" style="width: 100%; margin-top: 1.5rem;">
+                    <span class="lang-en">Request Full Profile</span>
+                    <span class="lang-bg">Поискай Пълен Профил</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p class="lang-en">© 2025 Pirin Izvor. The most efficient tech talent pipeline between Bulgaria and Europe.</p>
+        <p class="lang-bg">© 2025 Pirin Izvor. Най-ефективният канал за IT таланти между България и Европа.</p>
+    </footer>
+
+    <script>
+        // ===== 1. LANGUAGE TOGGLE =====
+        const langSwitch = document.getElementById('langSwitch');
+        let currentLang = 'en';
+        langSwitch.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'bg' : 'en';
+            document.querySelectorAll('.lang-en').forEach(el => el.style.display = currentLang === 'en' ? 'block' : 'none');
+            document.querySelectorAll('.lang-bg').forEach(el => el.style.display = currentLang === 'bg' ? 'block' : 'none');
+            langSwitch.textContent = currentLang === 'en' ? 'БГ / BG' : 'BG / БГ';
+        });
+
+        // ===== 2. FAKE CANDIDATE DATA =====
+        const candidates = [
+            { id: 1, initials: 'TD', roleEn: 'Senior Full-Stack Developer (React/Node)', roleBg: 'Сеньор Full-Stack Разработчик (React/Node)', skills: ['TypeScript', 'React', 'Next.js', 'Node.js', 'GraphQL', 'AWS', 'PostgreSQL', 'Redis'] },
+            { id: 2, initials: 'AP', roleEn: 'Lead DevOps/SRE Engineer', roleBg: 'Lead DevOps/SRE Инженер', skills: ['Kubernetes', 'Terraform', 'Helm', 'Prometheus', 'Grafana', 'Go', 'Python', 'Azure'] },
+            { id: 3, initials: 'EK', roleEn: 'Frontend Architect (React/Vue)', roleBg: 'Frontend Архитект (React/Vue)', skills: ['React', 'Vue 3', 'State Management', 'Webpack/Vite', 'Design Systems', 'Web Performance', 'Testing'] },
+            { id: 4, initials: 'MI', roleEn: 'Backend Engineer (Java/Kotlin)', roleBg: 'Backend Инженер (Java/Kotlin)', skills: ['Java 17+', 'Spring Boot', 'Kotlin', 'Microservices', 'Kafka', 'MongoDB', 'Redis', 'gRPC'] },
+            { id: 5, initials: 'ND', roleEn: 'QA Automation Lead', roleBg: 'QA Automation Ръководител', skills: ['Playwright', 'Cypress', 'Selenium', 'API Testing', 'Load Testing', 'CI/CD', 'Azure DevOps'] },
+            { id: 6, initials: 'PP', roleEn: 'Mobile Lead (React Native/Flutter)', roleBg: 'Mobile Ръководител (React Native/Flutter)', skills: ['React Native', 'Flutter', 'iOS', 'Android', 'Redux', 'Firebase', 'App Store/Play Console'] },
+            { id: 7, initials: 'VK', roleEn: 'Data Engineer (Python/Scala)', roleBg: 'Data Инженер (Python/Scala)', skills: ['Python', 'Scala', 'Apache Spark', 'Airflow', 'Snowflake', 'dbt', 'Kafka', 'AWS Glue'] },
+            { id: 8, initials: 'SG', roleEn: 'UX/UI Product Designer', roleBg: 'UX/UI Продуктов Дизайнер', skills: ['Figma', 'Design Systems', 'User Research', 'Prototyping', 'Accessibility', 'HTML/CSS', 'Product Strategy'] }
+        ];
+
+        // ===== 3. RENDER PROFILES =====
+        const profilesContainer = document.getElementById('profilesContainer');
+        candidates.forEach(candidate => {
+            const card = document.createElement('div');
+            card.className = 'profile-card';
+            card.innerHTML = `
+                <div class="profile-img">${candidate.initials}</div>
+                <div class="profile-body">
+                    <div class="profile-name">Candidate ${candidate.id}</div>
+                    <div class="profile-role lang-en">${candidate.roleEn}</div>
+                    <div class="profile-role lang-bg">${candidate.roleBg}</div>
+                    <div class="profile-skills">
+                        ${candidate.skills.slice(0, 5).map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                        ${candidate.skills.length > 5 ? `<span class="skill-tag">+${candidate.skills.length - 5} more</span>` : ''}
+                    </div>
+                    <div class="profile-cta">
+                        <button class="btn-profile open-interest" data-id="${candidate.id}" data-role-en="${candidate.roleEn}" data-role-bg="${candidate.roleBg}">
+                            <span class="lang-en">Request Full Profile</span>
+                            <span class="lang-bg">Поискай Пълен Профил</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+            profilesContainer.appendChild(card);
+        });
+
+        // ===== 4. SMOOTH SCROLL & BUTTON ACTIONS =====
+        document.getElementById('scrollToTalent').addEventListener('click', () => {
+            document.getElementById('talentSection').scrollIntoView({ behavior: 'smooth' });
+        });
+        document.getElementById('seeMoreBtn').addEventListener('click', () => {
+            document.getElementById('interestModal').style.display = 'flex';
+            document.getElementById('modalRoleTitle').textContent = currentLang === 'en' ? 'Multiple Senior Candidates' : 'Няколко Сеньор Кандидати';
+            document.getElementById('formCandidateRole').value = 'Multiple Profiles Request';
+        });
+        document.getElementById('heroAccessBtn').addEventListener('click', () => {
+            document.getElementById('interestModal').style.display = 'flex';
+            document.getElementById('modalRoleTitle').textContent = currentLang === 'en' ? 'Priority Platform Access' : 'Приоритетен Достъп до Платформата';
+            document.getElementById('formCandidateRole').value = 'Priority Access Request';
+        });
+
+        // ===== 5. MODAL CONTROLS =====
+        const modal = document.getElementById('interestModal');
+        const closeModal = document.getElementById('closeModal');
+        const modalRoleTitle = document.getElementById('modalRoleTitle');
+        const formCandidateRole = document.getElementById('formCandidateRole');
+
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('open-interest')) {
+                const btn = e.target;
+                const roleEn = btn.getAttribute('data-role-en');
+                const roleBg = btn.getAttribute('data-role-bg');
+                const candidateId = btn.getAttribute('data-id');
+
+                modalRoleTitle.textContent = currentLang === 'en' ? roleEn : roleBg;
+                formCandidateRole.value = `Candidate ${candidateId}: ${currentLang === 'en' ? roleEn : roleBg}`;
+                modal.style.display = 'flex';
+            }
+        });
+        closeModal.addEventListener('click', () => modal.style.display = 'none');
+        window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+
+        // ===== 6. FORM SUBMISSION FEEDBACK =====
+        const forms = document.querySelectorAll('form[action*="formspree.io"]');
+        forms.forEach(form => {
+            form.addEventListener('submit', function(e) {
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalHTML = submitBtn.innerHTML;
+                if(currentLang === 'en') {
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending Request...';
+                } else {
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Изпращане на Заявка...';
+                }
+                submitBtn.disabled = true;
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalHTML;
+                    submitBtn.disabled = false;
+                    if(form.parentElement.classList.contains('modal-content')) {
+                        modal.style.display = 'none';
+                        alert(currentLang === 'en' ? 'Request sent! We\'ll contact you shortly.' : 'Заявката е изпратена! Ще се свържем с вас скоро.');
+                    }
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
