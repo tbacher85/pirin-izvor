@@ -342,7 +342,7 @@
             background: rgba(255, 255, 255, 0.95);
         }
 
-        /* Header & Footer */
+        /* ========== FIXED HEADER SECTION ========== */
         header {
             position: absolute;
             top: 0;
@@ -352,6 +352,7 @@
             justify-content: space-between;
             align-items: center;
             z-index: 100;
+            flex-wrap: wrap; /* Allows elements to stack if needed */
         }
         .logo {
             font-family: var(--font-display);
@@ -359,6 +360,7 @@
             font-weight: 800;
             color: white;
             text-decoration: none;
+            line-height: 1.2;
         }
         .logo span { color: var(--color-warm); }
         .lang-toggle {
@@ -371,17 +373,27 @@
             font-weight: 600;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
         .lang-toggle:hover {
             background: rgba(255, 255, 255, 0.2);
         }
-        footer {
-            text-align: center;
-            padding: 3rem 5%;
-            color: var(--color-muted);
-            font-size: 0.9rem;
-            border-top: 1px solid #eee;
+        /* Mobile-specific header fixes */
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem 5%; /* Slightly less padding on mobile */
+                justify-content: center; /* Center items */
+                text-align: center;
+            }
+            .logo {
+                margin-bottom: 0.75rem; /* Adds space between logo and button */
+                width: 100%; /* Makes logo take full width to center properly */
+            }
+            .lang-toggle {
+                margin-top: 0.5rem;
+            }
         }
+        /* ========================================== */
 
         /* Modal */
         .modal {
@@ -434,12 +446,24 @@
             .final-cta { margin: 0 0 4rem; border-radius: 0; }
             .profiles-header { flex-direction: column; text-align: center; }
         }
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            color: var(--color-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
     </style>
 </head>
 <body>
     <!-- HEADER -->
     <header>
-        <a href="#" class="logo">Pirin<span>Izvor</span></a>
+        <a href="#" class="logo">Pirin<span>Izvor</span><br>
+            <small style="font-size: 0.4em; font-weight: 300; font-family: var(--font-sans); display: block; margin-top: 0.2rem;">
+                <span class="lang-en">The Direct Pipeline</span>
+                <span class="lang-bg">Директният Канал</span>
+            </small>
+        </a>
         <button class="lang-toggle" id="langSwitch">БГ / BG</button>
     </header>
 
@@ -539,7 +563,7 @@
         <h2 class="lang-bg">Готови ли сте да Достигнете Извора?</h2>
         <p class="lang-en">Join 300+ European SMEs and Bulgarian scale-ups who have streamlined their tech hiring. The first connection is on us.</p>
         <p class="lang-bg">Присъединете се към 300+ европейски МСП и български скайлъпи, които оптимизираха наемането на IT. Първата връзка е за наша сметка.</p>
-        <form class="cta-form" action="https://formspree.io/f/{YOUR_FORM_ID_HERE}" method="POST">
+        <form class="cta-form" action="https://formspree.io/f/mgoovnlv" method="POST">
             <input class="form-input" type="email" name="email" placeholder="Your work email" required>
             <input class="form-input" type="text" name="company" placeholder="Company name">
             <button class="btn-primary" type="submit">
@@ -558,7 +582,7 @@
             <p class="modal-role" id="modalRoleTitle" style="color: var(--color-source); font-weight: 700; font-size: 1.2rem; margin-bottom: 1.5rem;">Senior Full-Stack Developer</p>
             <p class="lang-en" style="margin-bottom: 2rem;">Submit your details. We will contact you within <strong>4 business hours</strong> to share the full profile and arrange an introduction.</p>
             <p class="lang-bg" style="margin-bottom: 2rem;">Оставете вашите данни. Ще се свържем с вас в рамките на <strong>4 работни часа</strong>, за да споделим пълния профил и насрочим запознанство.</p>
-            <form id="modalForm" action="https://formspree.io/f/mgoovnlv" method="POST">
+            <form id="modalForm" action="https://formspree.io/f/{YOUR_CANDIDATE_FORM_ID_HERE}" method="POST">
                 <input type="hidden" name="candidate_role" id="formCandidateRole">
                 <input class="form-input" type="text" name="name" placeholder="Your Name" style="margin-bottom: 1rem;" required>
                 <input class="form-input" type="email" name="email" placeholder="Email" style="margin-bottom: 1rem;" required>
